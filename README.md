@@ -1,2 +1,2 @@
-# docker-node
-Node.js Docker Image
+# Base Node.js Docker Image for Chnoumis projects
+
