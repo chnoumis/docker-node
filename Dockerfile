@@ -1,4 +1,4 @@
-FROM chnoumis/base-sti:2.0.0
+FROM chnoumis/base:2.0.0
 
 MAINTAINER chnoumis
 
@@ -36,19 +36,16 @@ RUN curl -sSL https://nodejs.org/dist/v6.2.0/node-v6.2.0.tar.gz | tar -xz && \
     /usr/share/man /tmp/* /var/cache/apk/* /root/.npm /root/.node-gyp \
     /usr/lib/node_modules/npm/man /usr/lib/node_modules/npm/doc /usr/lib/node_modules/npm/html
 
-# Startup and usage script
-ADD deploy-and-start.sh /usr/bin/
-
-USER chnoumis
-
 # Create node directory
 RUN mkdir -p WORKDIR /opt/chnoumis/node/app
 RUN mkdir -p WORKDIR /opt/chnoumis/node/bin
+RUN mkdir -p WORKDIR /opt/chnoumis/node/build
 
-# Add configurtion templates
-ADD npmrc.erb /opt/chnoumis/node/build
+RUN chown -R chnoumis:chnoumis /opt/chnoumis/node
+
+USER chnoumis
 
 # Set the working directory
 WORKDIR /opt/chnoumis/node/app
 
-CMD ["/usr/bin/sti-helper"]
+CMD "npm start"
