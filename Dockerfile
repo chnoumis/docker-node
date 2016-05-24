@@ -43,9 +43,11 @@ RUN mkdir -p WORKDIR /opt/chnoumis/node/build
 
 RUN chown -R chnoumis:chnoumis /opt/chnoumis/node
 
+ADD deploy-and-start /usr/bin/deploy-and-start
+
 USER chnoumis
 
 # Set the working directory
 WORKDIR /opt/chnoumis/node/app
 
-CMD "npm start"
+CMD "/usr/bin/deploy-and-start"
