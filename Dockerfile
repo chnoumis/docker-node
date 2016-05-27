@@ -36,6 +36,8 @@ RUN curl -sSL https://nodejs.org/dist/v6.2.0/node-v6.2.0.tar.gz | tar -xz && \
     /usr/share/man /tmp/* /var/cache/apk/* /root/.npm /root/.node-gyp \
     /usr/lib/node_modules/npm/man /usr/lib/node_modules/npm/doc /usr/lib/node_modules/npm/html
 
+RUN npm install -g nativescript && npm install -g typescript
+
 # Create node directory
 RUN mkdir -p WORKDIR /opt/chnoumis/node/app
 RUN mkdir -p WORKDIR /opt/chnoumis/node/bin
