@@ -37,9 +37,9 @@ RUN curl -sSL https://nodejs.org/dist/v6.2.0/node-v6.2.0.tar.gz | tar -xz && \
     /usr/lib/node_modules/npm/man /usr/lib/node_modules/npm/doc /usr/lib/node_modules/npm/html
 
 # Create node directory
-RUN mkdir -p WORKDIR /opt/chnoumis/node/app
-RUN mkdir -p WORKDIR /opt/chnoumis/node/bin
-RUN mkdir -p WORKDIR /opt/chnoumis/node/build
+RUN mkdir -p /opt/chnoumis/node/app
+RUN mkdir -p /opt/chnoumis/node/bin
+RUN mkdir -p /opt/chnoumis/node/build
 
 RUN chown -R chnoumis:chnoumis /opt/chnoumis/node
 
