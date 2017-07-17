@@ -21,8 +21,8 @@ RUN apk add --update \
 
 RUN update-ca-certificates
 
-RUN curl -sSL https://nodejs.org/dist/v6.2.0/node-v6.2.0.tar.gz | tar -xz && \
-  cd node-v6.2.0 && \
+RUN curl -sSL https://nodejs.org/dist/v8.1.4/node-v8.1.4.tar.gz | tar -xz && \
+  cd node-v8.1.4 && \
   ./configure --prefix=/usr && \
   NPROC=$(grep -c ^processor /proc/cpuinfo 2>/dev/null || 1) && \
   make out/Makefile && \
@@ -32,7 +32,7 @@ RUN curl -sSL https://nodejs.org/dist/v6.2.0/node-v6.2.0.tar.gz | tar -xz && \
   make install && \
   paxctl -cm /usr/bin/node && \
   cd / && \
-  rm -rf /etc/ssl node-v6.2.0 \
+  rm -rf /etc/ssl node-v8.1.4 \
     /usr/share/man /tmp/* /var/cache/apk/* /root/.npm /root/.node-gyp \
     /usr/lib/node_modules/npm/man /usr/lib/node_modules/npm/doc /usr/lib/node_modules/npm/html
 
